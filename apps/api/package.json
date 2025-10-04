@@ -53,6 +53,7 @@
     "typescript": "catalog:tooling",
     "typescript-eslint": "catalog:linting",
     "unplugin-swc": "^1.5.7",
+    "vite-tsconfig-paths": "catalog:testing",
     "vitest": "catalog:testing"
   }
 }
