@@ -1,3 +1,6 @@
+import compression from '@fastify/compress';
+import cookie from '@fastify/cookie';
+import helmet from '@fastify/helmet';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -30,6 +33,10 @@ async function bootstrap() {
   const documentFactory = () =>
     SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('docs', app, documentFactory);
+
+  await app.register(compression);
+  await app.register(cookie);
+  await app.register(helmet);
 
   await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
