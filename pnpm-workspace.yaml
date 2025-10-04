@@ -2,6 +2,33 @@ packages:
   - apps/*
   - packages/*
 
+catalog:
+  "@types/node": ^24.6.2
+
+catalogs:
+  tooling:
+    ts-loader: ^9.5.4
+    ts-node: ^10.9.2
+    tsconfig-paths: ^4.2.0
+    typescript: ^5.9.3
+
+  testing:
+    jest: ^30.2.0
+    supertest: ^7.1.4
+    ts-jest: ^29.4.4
+    globals: ^16.4.0
+    "@types/jest": ^30.0.0
+    "@types/supertest": ^6.0.3
+
+  linting:
+    eslint: ^9.37.0
+    eslint-config-prettier: ^10.1.8
+    eslint-plugin-prettier: ^5.5.4
+    typescript-eslint: ^8.45.0
+    prettier: ^3.6.2
+    "@eslint/eslintrc": ^3.3.1
+    "@eslint/js": ^9.37.0
+
 onlyBuiltDependencies:
-  - '@nestjs/core'
+  - "@nestjs/core"
   - unrs-resolver
