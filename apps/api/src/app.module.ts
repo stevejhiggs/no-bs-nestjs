@@ -6,8 +6,10 @@ import { AppService } from './app.service.js';
 
 import { loggerOptions } from './config/logger.js';
 
+import { HealthModule } from './modules/health/module.js';
+
 @Module({
-  imports: [LoggerModule.forRoot(loggerOptions)],
+  imports: [LoggerModule.forRoot(loggerOptions), HealthModule],
   controllers: [AppController],
   providers: [AppService],
 })
