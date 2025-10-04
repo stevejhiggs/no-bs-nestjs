@@ -33,6 +33,9 @@
     "@nestjs/cli": "^11.0.10",
     "@nestjs/schematics": "^11.0.8",
     "@nestjs/testing": "^11.1.6",
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.5",
+    "@swc/jest": "catalog:testing",
     "@types/jest": "catalog:testing",
     "@types/node": "catalog:",
     "@types/supertest": "catalog:testing",
@@ -60,7 +63,7 @@
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
+      "^.+\\.(t|j)s$": "@swc/jest"
     },
     "collectCoverageFrom": [
       "**/*.(t|j)s"
