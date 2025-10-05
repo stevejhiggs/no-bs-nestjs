@@ -12,6 +12,8 @@ import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
 import { AppModule } from './app.module.js';
 import { ValidationPipe } from '@nestjs/common';
 
+import metadata from './metadata.js';
+
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
@@ -35,6 +37,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
   // setup swagger
+  await SwaggerModule.loadPluginMetadata(metadata);
   const swaggerConfig = new DocumentBuilder()
     .setTitle('No Bs NestJS')
     .setVersion('1.0')
