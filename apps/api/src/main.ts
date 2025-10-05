@@ -10,7 +10,6 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
 
 import { AppModule } from './app.module.js';
-import { ValidationPipe } from '@nestjs/common';
 
 import metadata from './metadata.js';
 
@@ -19,14 +18,6 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter({
       logger: false,
-    }),
-  );
-
-  // set up validation pipe, error if unknown properties are passed
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
     }),
   );
 
