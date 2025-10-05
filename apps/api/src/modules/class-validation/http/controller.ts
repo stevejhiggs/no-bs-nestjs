@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserRequestDto } from './dtos/create-user.js';
+import { CreateUserRequestDto } from './dtos/create-user.dto.js';
 
 @Controller('class-validation')
 export class ClassValidationController {
