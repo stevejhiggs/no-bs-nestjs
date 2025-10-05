@@ -35,6 +35,7 @@ async function bootstrap() {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('No Bs NestJS')
     .setVersion('1.0')
+    .setOpenAPIVersion('3.1.0')
     .build();
   const documentFactory = () =>
     cleanupOpenApiDoc(SwaggerModule.createDocument(app, swaggerConfig));
