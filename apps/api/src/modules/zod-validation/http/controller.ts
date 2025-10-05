@@ -1,5 +1,8 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserRequestZodDto } from './dtos/create-user.js';
+import {
+  CreateUserRequestDescriminatedUnionZodDto,
+  CreateUserRequestZodDto,
+} from './dtos/create-user.js';
 
 @Controller('zod-validation')
 export class ZodValidationController {
@@ -8,5 +11,12 @@ export class ZodValidationController {
   @Post()
   create(@Body() createUserDto: CreateUserRequestZodDto) {
     return `This action adds a new user ${createUserDto.email}`;
+  }
+
+  @Post('descriminated-union')
+  createDescriminatedUnion(
+    @Body() createUserDto: CreateUserRequestDescriminatedUnionZodDto,
+  ) {
+    return `This action adds a new user ${createUserDto.user.type}`;
   }
 }
