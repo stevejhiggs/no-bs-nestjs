@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { CreateUserRequestDto } from './dtos/create-user.dto.js';
 
+// although we default to zod validation, we can still use class validation if we want
 @Controller('class-validation')
 @UsePipes(new ValidationPipe())
 export class ClassValidationController {

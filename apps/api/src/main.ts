@@ -1,3 +1,4 @@
+import { cleanupOpenApiDoc, ZodValidationPipe } from 'nestjs-zod';
 import compression from '@fastify/compress';
 import cookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
@@ -10,7 +11,6 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
 
 import { AppModule } from './app.module.js';
-
 import metadata from './metadata.js';
 
 async function bootstrap() {
@@ -23,6 +23,9 @@ async function bootstrap() {
 
   app.enableShutdownHooks();
 
+  // setup zod validation
+  app.useGlobalPipes(new ZodValidationPipe());
+
   // setup logger
   app.useLogger(app.get(Logger));
   app.useGlobalInterceptors(new LoggerErrorInterceptor());
@@ -34,7 +37,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const documentFactory = () =>
-    SwaggerModule.createDocument(app, swaggerConfig);
+    cleanupOpenApiDoc(SwaggerModule.createDocument(app, swaggerConfig));
   SwaggerModule.setup('docs', app, documentFactory);
 
   await app.register(compression);
