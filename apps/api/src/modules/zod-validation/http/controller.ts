@@ -14,12 +14,14 @@ export class ZodValidationController {
   // strongly typed response
   @ZodResponse({ type: CreateUserResponseZodDto })
   create(@Body() createUserDto: CreateUserRequestZodDto) {
-    return [
-      {
-        username: createUserDto.username,
-        email: createUserDto.email,
-      },
-    ];
+    return {
+      users: [
+        {
+          username: createUserDto.username,
+          email: createUserDto.email,
+        },
+      ],
+    };
   }
 
   @Post('descriminated-union')

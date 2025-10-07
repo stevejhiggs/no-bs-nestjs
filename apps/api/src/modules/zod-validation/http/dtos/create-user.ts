@@ -6,12 +6,14 @@ const credentialsRequestSchema = z.object({
   email: z.email(),
 });
 
-const credentialsResponseSchema = z.array(
-  z.object({
-    username: z.string(),
-    email: z.email(),
-  }),
-);
+const credentialsResponseSchema = z.object({
+  users: z.array(
+    z.object({
+      username: z.string(),
+      email: z.email(),
+    }),
+  ),
+});
 
 const descriminatedUnionSchema = z.discriminatedUnion('type', [
   z.object({
