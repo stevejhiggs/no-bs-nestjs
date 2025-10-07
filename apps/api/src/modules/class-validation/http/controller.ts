@@ -21,7 +21,7 @@ export class ClassValidationController {
   @Post()
   create(@Body() createUserDto: CreateUserRequestDto): CreateUserResponseDto {
     return {
-      users: [{ username: createUserDto.email, email: createUserDto.email }],
+      users: [{ username: createUserDto.username, email: createUserDto.email }],
     };
   }
 }

@@ -19,14 +19,14 @@ export class CreateUserRequestDto {
 
   @IsNotEmpty()
   @ApiProperty()
-  password: string;
+  username: string;
 }
 
 class UserResponseDto {
   @IsNotEmpty()
   @ApiProperty()
   username: string;
-  @IsNotEmpty()
+  @IsEmail()
   @ApiProperty()
   email: string;
 }
