@@ -1,10 +1,17 @@
 import { createZodDto } from 'nestjs-zod';
 import { z } from 'zod';
 
-const credentialsSchema = z.object({
+const credentialsRequestSchema = z.object({
   username: z.string(),
   email: z.email(),
 });
+
+const credentialsResponseSchema = z.array(
+  z.object({
+    username: z.string(),
+    email: z.email(),
+  }),
+);
 
 const descriminatedUnionSchema = z.discriminatedUnion('type', [
   z.object({
@@ -19,13 +26,19 @@ const descriminatedUnionSchema = z.discriminatedUnion('type', [
 ]);
 
 // zod nest cant deal with top level descriminated unions, so we need to wrap it in an object
-const wrappedUnionSchema = z.object({
+const descriminatedUnionRequestSchema = z.object({
   user: descriminatedUnionSchema,
 });
 
 // class is required for using DTO as a type
-export class CreateUserRequestZodDto extends createZodDto(credentialsSchema) {}
+export class CreateUserRequestZodDto extends createZodDto(
+  credentialsRequestSchema,
+) {}
+
+export class CreateUserResponseZodDto extends createZodDto(
+  credentialsResponseSchema,
+) {}
 
 export class CreateUserRequestDescriminatedUnionZodDto extends createZodDto(
-  wrappedUnionSchema,
+  descriminatedUnionRequestSchema,
 ) {}
