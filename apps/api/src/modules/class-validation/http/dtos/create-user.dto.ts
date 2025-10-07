@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsEmail, IsNotEmpty, ValidateNested } from 'class-validator';
 
 /**
  * In order for the class validator properties to be picked up by the swagger plugin,
@@ -19,4 +20,22 @@ export class CreateUserRequestDto {
   @IsNotEmpty()
   @ApiProperty()
   password: string;
+}
+
+class UserResponseDto {
+  @IsNotEmpty()
+  @ApiProperty()
+  username: string;
+  @IsNotEmpty()
+  @ApiProperty()
+  email: string;
+}
+
+export class CreateUserResponseDto {
+  @ApiProperty({
+    type: [UserResponseDto],
+  })
+  @ValidateNested({ each: true })
+  @Type(() => UserResponseDto)
+  users: UserResponseDto[];
 }

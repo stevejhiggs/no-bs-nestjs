@@ -5,16 +5,23 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserRequestDto } from './dtos/create-user.dto.js';
+import {
+  CreateUserRequestDto,
+  CreateUserResponseDto,
+} from './dtos/create-user.dto.js';
+import { ApiResponse } from '@nestjs/swagger';
 
 // although we default to zod validation, we can still use class validation if we want
 @Controller('class-validation')
+@ApiResponse({ type: CreateUserResponseDto })
 @UsePipes(new ValidationPipe())
 export class ClassValidationController {
   constructor() {}
 
   @Post()
-  create(@Body() createUserDto: CreateUserRequestDto) {
-    return `This action adds a new user ${createUserDto.email}`;
+  create(@Body() createUserDto: CreateUserRequestDto): CreateUserResponseDto {
+    return {
+      users: [{ username: createUserDto.email, email: createUserDto.email }],
+    };
   }
 }
