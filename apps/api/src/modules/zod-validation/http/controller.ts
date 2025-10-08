@@ -13,7 +13,9 @@ export class ZodValidationController {
   @Post()
   // strongly typed response
   @ZodResponse({ type: CreateUserResponseZodDto })
-  create(@Body() createUserDto: CreateUserRequestZodDto) {
+  create(
+    @Body() createUserDto: CreateUserRequestZodDto,
+  ): CreateUserResponseZodDto {
     return {
       users: [
         {
