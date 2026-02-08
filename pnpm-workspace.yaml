@@ -1,33 +1,40 @@
-packages:
-  - apps/*
-  - packages/*
-
-catalog:
-  '@types/node': ^24.6.2
-
-catalogs:
-  linting:
-    '@eslint/eslintrc': ^3.3.1
-    '@eslint/js': ^9.37.0
-    eslint: ^9.37.0
-    eslint-config-prettier: ^10.1.8
-    eslint-plugin-prettier: ^5.5.4
-    prettier: ^3.6.2
-    typescript-eslint: ^8.45.0
-  testing:
-    '@vitest/coverage-v8': ^3.2.4
-    globals: ^16.4.0
-    vite-tsconfig-paths: ^5.1.4
-    vitest: ^3.2.4
-  tooling:
-    ts-loader: ^9.5.4
-    ts-node: ^10.9.2
-    tsconfig-paths: ^4.2.0
-    typescript: ^5.9.3
-
-onlyBuiltDependencies:
-  - '@nestjs/core'
-  - '@scarf/scarf'
-  - '@swc/core'
-  - esbuild
-  - unrs-resolver
+{
+  "packages": [
+    "apps/*",
+    "packages/*"
+  ],
+  "catalog": {
+    "@types/node": "^25.2.2"
+  },
+  "catalogs": {
+    "linting": {
+      "@eslint/eslintrc": "^3.3.3",
+      "@eslint/js": "^10.0.1",
+      "eslint": "^10.0.0",
+      "eslint-config-prettier": "^10.1.8",
+      "eslint-plugin-prettier": "^5.5.5",
+      "prettier": "^3.8.1",
+      "typescript-eslint": "^8.54.0"
+    },
+    "testing": {
+      "@vitest/coverage-v8": "^4.0.18",
+      "globals": "^17.3.0",
+      "vite-tsconfig-paths": "^6.1.0",
+      "vitest": "^4.0.18"
+    },
+    "tooling": {
+      "ts-loader": "^9.5.4",
+      "ts-node": "^10.9.2",
+      "tsconfig-paths": "^4.2.0",
+      "typescript": "^5.9.3"
+    }
+  },
+  "onlyBuiltDependencies": [
+    "@nestjs/core",
+    "@scarf/scarf",
+    "@swc/core",
+    "esbuild",
+    "protobufjs",
+    "unrs-resolver"
+  ]
+}
