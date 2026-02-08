@@ -8,15 +8,15 @@
   "type": "module",
   "scripts": {
     "build": "nest build",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
     "lint": "oxlint --type-aware --type-check --fix && oxfmt",
     "lint:check": "oxlint --type-aware --type-check && oxfmt --check",
+    "start": "nest start",
+    "start:debug": "nest start --debug --watch",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "test:cov": "vitest run --coverage"
+    "test:cov": "vitest run --coverage",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@fastify/compress": "^8.3.1",

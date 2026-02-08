@@ -5,11 +5,12 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiResponse } from '@nestjs/swagger';
+
 import {
   CreateUserRequestDto,
   CreateUserResponseDto,
 } from './dtos/create-user.dto.js';
-import { ApiResponse } from '@nestjs/swagger';
 
 // although we default to zod validation, we can still use class validation if we want
 @Controller('class-validation')

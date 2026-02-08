@@ -1,5 +1,6 @@
-import type { Params } from 'nestjs-pino';
 import { createGcpLoggingPinoConfig } from '@google-cloud/pino-logging-gcp-config';
+import type { Params } from 'nestjs-pino';
+
 import { isLocalDevelopment } from '@/environment.js';
 
 export const loggerOptions = <Params>{

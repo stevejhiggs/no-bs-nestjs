@@ -1,8 +1,9 @@
+import type { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { Test, TestingModule } from '@nestjs/testing';
 import request from 'supertest';
-import { AppModule } from '../src/app.module.js';
 import { beforeEach, describe, it } from 'vitest';
-import type { NestFastifyApplication } from '@nestjs/platform-fastify';
+
+import { AppModule } from '../src/app.module.js';
 
 describe('AppController (e2e)', () => {
   let app: NestFastifyApplication;

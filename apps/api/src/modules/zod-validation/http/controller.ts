@@ -1,10 +1,11 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { ZodResponse } from 'nestjs-zod';
+
 import {
   CreateUserRequestDescriminatedUnionZodDto,
   CreateUserRequestZodDto,
   CreateUserResponseZodDto,
 } from './dtos/create-user.js';
-import { ZodResponse } from 'nestjs-zod';
 
 @Controller('zod-validation')
 export class ZodValidationController {

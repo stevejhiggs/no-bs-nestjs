@@ -1,4 +1,3 @@
-import { cleanupOpenApiDoc, ZodValidationPipe } from 'nestjs-zod';
 import compression from '@fastify/compress';
 import cookie from '@fastify/cookie';
 import helmet from '@fastify/helmet';
@@ -9,6 +8,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
+import { cleanupOpenApiDoc, ZodValidationPipe } from 'nestjs-zod';
 
 import { AppModule } from './app.module.js';
 
