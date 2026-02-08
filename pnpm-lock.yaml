@@ -48,7 +48,17 @@ catalogs:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      oxfmt:
+        specifier: catalog:linting
+        version: 0.28.0
+      oxlint:
+        specifier: catalog:linting
+        version: 1.43.0(oxlint-tsgolint@0.11.5)
+      oxlint-tsgolint:
+        specifier: catalog:linting
+        version: 0.11.5
 
   apps/api:
     dependencies:

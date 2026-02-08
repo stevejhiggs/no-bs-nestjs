@@ -6,5 +6,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.29.1"
+  "packageManager": "pnpm@10.29.1",
+  "devDependencies": {
+    "oxfmt": "catalog:linting",
+    "oxlint": "catalog:linting",
+    "oxlint-tsgolint": "catalog:linting"
+  }
 }
