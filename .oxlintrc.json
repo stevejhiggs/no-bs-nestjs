@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["typescript"],
+  "plugins": ["eslint", "typescript", "unicorn", "import", "vitest", "node", "promise"],
   "env": {
     "node": true,
     "vitest": true
@@ -8,6 +8,7 @@
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-floating-promises": "warn",
-    "@typescript-eslint/no-unsafe-argument": "warn"
+    "@typescript-eslint/no-unsafe-argument": "warn",
+    "promise/valid-params": "off"
   }
 }
